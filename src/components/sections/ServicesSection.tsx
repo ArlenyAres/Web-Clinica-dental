@@ -1,4 +1,4 @@
-import { useState, type FC } from 'react';
+import { useState, type FC, type ReactElement } from 'react';
 import SectionTitle from '../ui/SectionTitle';
 import type { Service } from '../../types';
 import {
@@ -8,7 +8,7 @@ import {
 import styles from './ServicesSection.module.css';
 
 /* ---- Service icons (inline SVG paths keyed by icon name) ---- */
-const SERVICE_ICONS: Record<string, JSX.Element> = {
+const SERVICE_ICONS: Record<string, ReactElement> = {
   whitening: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"
       strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
