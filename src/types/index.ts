@@ -1,5 +1,5 @@
 /* ============================================================
-   Types — Alloy Dental domain interfaces
+   Types — NEU Dental domain interfaces
    ============================================================ */
 
 export interface Service {
