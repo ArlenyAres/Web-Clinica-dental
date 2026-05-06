@@ -1,13 +1,13 @@
-import type { FC, HTMLAttributes } from 'react';
+import type { FC, HTMLAttributes, ElementType } from 'react';
 import styles from './Card.module.css';
 
 type CardVariant = 'default' | 'flat' | 'teal-accent';
 type CardPadding = 'none' | 'md' | 'lg';
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends HTMLAttributes<HTMLElement> {
   variant?: CardVariant;
   padding?: CardPadding;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
 }
 
 const Card: FC<CardProps> = ({

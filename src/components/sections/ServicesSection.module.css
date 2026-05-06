@@ -1,0 +1,178 @@
+/* ============================================================
+   ServicesSection — BEM: .services-section
+   ============================================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Root ---- */
+.services-section {
+  padding: var(--space-2xl) var(--space-lg);
+  background-color: var(--color-white);
+}
+
+.services-section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---- Filter tabs ---- */
+.services-section__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.services-section__filter-btn {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 8px var(--space-md);
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  background-color: var(--color-gray-light);
+  color: var(--color-gray-text);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.services-section__filter-btn:hover {
+  background-color: var(--color-teal-light);
+  color: var(--color-teal-dark);
+}
+
+.services-section__filter-btn--active {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+  border-color: var(--color-teal);
+}
+
+/* ---- Grid ---- */
+.services-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+/* ============================================================
+   ServiceCard — BEM: .service-card
+   ============================================================ */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border-bottom: 3px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+              border-color 0.25s ease;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.service-card:hover,
+.service-card.is-hovered {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-bottom-color: var(--color-teal);
+}
+
+/* ---- Icon wrap ---- */
+.service-card__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-teal-light);
+  flex-shrink: 0;
+  transition: background-color 0.25s ease;
+}
+
+.service-card:hover .service-card__icon-wrap {
+  background-color: var(--color-teal);
+}
+
+.service-card__icon-wrap svg {
+  width: 28px;
+  height: 28px;
+  color: var(--color-teal);
+  transition: color 0.25s ease;
+}
+
+.service-card:hover .service-card__icon-wrap svg {
+  color: var(--color-white);
+}
+
+/* ---- Text ---- */
+.service-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.service-card__description {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--color-gray-text);
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* ---- Link ---- */
+.service-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-teal);
+  margin-top: auto;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.service-card__link:hover {
+  color: var(--color-teal-dark);
+  gap: 10px;
+}
+
+.service-card__link-arrow {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ---- Badge (category pill on card) ---- */
+.service-card__category {
+  align-self: flex-start;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background-color: var(--color-teal-light);
+  color: var(--color-teal-dark);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .services-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .services-section__grid {
+    grid-template-columns: 1fr;
+  }
+}

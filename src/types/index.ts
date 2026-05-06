@@ -8,6 +8,7 @@ export interface Service {
   description: string;
   icon: string;          // SVG path string or icon key
   slug: string;
+  category: 'Cosmetic' | 'Restorative' | 'Preventive';
   featured?: boolean;
 }
 
