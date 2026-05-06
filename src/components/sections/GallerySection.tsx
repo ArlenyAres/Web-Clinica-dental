@@ -207,7 +207,7 @@ const GallerySection: FC<GallerySectionProps> = ({ items }) => {
           {/* Close */}
           <button
             className={styles['lightbox__close']}
-            onClick={() => dispatch({ type: 'CLOSE' })}
+            onClick={e => { e.stopPropagation(); dispatch({ type: 'CLOSE' }); }}
             aria-label="Close lightbox"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
