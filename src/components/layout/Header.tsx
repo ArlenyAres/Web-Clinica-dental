@@ -58,9 +58,9 @@ const Header: FC<HeaderProps> = ({ transparent = false }) => {
     <header className={headerClasses}>
       <div className={styles['nav-header__inner']}>
         {/* ---- Logo ---- */}
-        <a href="#home" className={styles['nav-header__logo']} aria-label="Alloy Dental — home">
+        <a href="#home" className={styles['nav-header__logo']} aria-label="NEU Dental — home">
           <LogoSVG />
-          <span className={styles['nav-header__logo-text']}>Alloy Dental</span>
+          <span className={styles['nav-header__logo-text']}>NEU Dental</span>
         </a>
 
         {/* ---- Desktop nav ---- */}

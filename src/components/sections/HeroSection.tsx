@@ -36,7 +36,7 @@ const HeroSection: FC = () => {
     <section
       id="home"
       className={styles['hero-section']}
-      aria-label="Hero — Alloy Dental"
+      aria-label="Hero — NEU Dental"
     >
       {/* ---- Background image ---- */}
       <div className={styles['hero-section__background']}>
@@ -59,7 +59,7 @@ const HeroSection: FC = () => {
       <div className={styles['hero-section__content']}>
         {/* Eyebrow */}
         <span className={styles['hero-section__eyebrow']}>
-          Welcome to Alloy Dental
+          Welcome to NEU Dental
         </span>
 
         {/* H1 */}
