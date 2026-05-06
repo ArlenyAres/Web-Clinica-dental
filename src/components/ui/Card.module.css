@@ -1,0 +1,44 @@
+/* ============================================================
+   Card — BEM: .card  .card--[variant]
+   ============================================================ */
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover,
+.card.is-hovered {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+/* ---- Padding variants ---- */
+
+.card--padded {
+  padding: var(--space-lg);
+}
+
+.card--padded-lg {
+  padding: var(--space-xl);
+}
+
+/* ---- Style variants ---- */
+
+.card--flat {
+  box-shadow: none;
+  border: 1px solid rgba(26, 46, 68, 0.08);
+}
+
+.card--flat:hover,
+.card--flat.is-hovered {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.card--teal-accent {
+  border-top: 4px solid var(--color-teal);
+}

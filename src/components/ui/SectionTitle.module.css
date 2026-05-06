@@ -1,0 +1,57 @@
+/* ============================================================
+   SectionTitle — BEM: .section-title  .section-title--[align]
+   ============================================================ */
+
+.section-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.section-title--center {
+  align-items: center;
+  text-align: center;
+}
+
+.section-title--right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* Eyebrow label above the h2 */
+.section-title__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;   /* 13 px */
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+}
+
+/* Main heading */
+.section-title__heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.2;
+}
+
+/* Teal underline bar */
+.section-title__bar {
+  width: 48px;
+  height: 4px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-teal);
+  flex-shrink: 0;
+}
+
+/* Optional sub-text */
+.section-title__sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-gray-text);
+  max-width: 560px;
+  line-height: 1.7;
+}

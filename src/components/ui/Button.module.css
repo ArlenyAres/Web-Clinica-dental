@@ -1,0 +1,87 @@
+/* ============================================================
+   Button — BEM: .button  .button--[variant]  .button--[size]
+   ============================================================ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem;          /* 15 px */
+  line-height: 1;
+  padding: 12px var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease,
+              border-color 0.2s ease, box-shadow 0.2s ease,
+              transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: 2px;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+/* ---- Variants ---- */
+
+.button--primary {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+  border-color: var(--color-teal);
+}
+
+.button--primary:hover {
+  background-color: var(--color-teal-dark);
+  border-color: var(--color-teal-dark);
+  box-shadow: var(--shadow-hover);
+}
+
+.button--outline {
+  background-color: transparent;
+  color: var(--color-teal);
+  border-color: var(--color-teal);
+}
+
+.button--outline:hover {
+  background-color: var(--color-teal-light);
+  box-shadow: var(--shadow-card);
+}
+
+.button--ghost {
+  background-color: transparent;
+  color: var(--color-navy);
+  border-color: transparent;
+}
+
+.button--ghost:hover {
+  color: var(--color-teal);
+  background-color: var(--color-teal-light);
+}
+
+/* ---- Sizes ---- */
+
+.button--sm {
+  font-size: 0.8125rem;   /* 13 px */
+  padding: 8px var(--space-md);
+}
+
+.button--lg {
+  font-size: 1rem;
+  padding: 14px var(--space-xl);
+  border-radius: var(--radius-lg);
+}
+
+/* ---- Disabled ---- */
+
+.button:disabled,
+.button.is-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

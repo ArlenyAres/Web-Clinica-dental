@@ -1,0 +1,42 @@
+/* ============================================================
+   Icon — BEM: .icon  .icon--[size]
+   ============================================================ */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* ---- Size variants ---- */
+
+.icon--xs  { width: 12px; height: 12px; }
+.icon--sm  { width: 16px; height: 16px; }
+.icon--md  { width: 24px; height: 24px; }   /* default */
+.icon--lg  { width: 32px; height: 32px; }
+.icon--xl  { width: 48px; height: 48px; }
+.icon--2xl { width: 64px; height: 64px; }
+
+/* ---- Color helpers ---- */
+
+.icon--teal  { color: var(--color-teal); }
+.icon--navy  { color: var(--color-navy); }
+.icon--white { color: var(--color-white); }
+.icon--gray  { color: var(--color-gray-text); }
+
+/* ---- Background circle variant ---- */
+
+.icon--circle {
+  border-radius: 50%;
+  background-color: var(--color-teal-light);
+  color: var(--color-teal);
+  padding: var(--space-sm);
+}
