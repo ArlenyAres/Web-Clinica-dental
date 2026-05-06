@@ -1,0 +1,166 @@
+/* ============================================================
+   TeamSection — BEM: .team-section
+   ============================================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Root ---- */
+.team-section {
+  padding: var(--space-2xl) var(--space-lg);
+  background-color: var(--color-white);
+}
+
+.team-section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---- Grid ---- */
+.team-section__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+/* ============================================================
+   TeamMemberCard — BEM: .team-member-card
+   ============================================================ */
+.team-member-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-md);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.team-member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ---- Photo wrap ---- */
+.team-member-card__photo-wrap {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.team-member-card__photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--color-teal);
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.team-member-card:hover .team-member-card__photo {
+  transform: scale(1.05);
+}
+
+/* Overlay on hover with social links */
+.team-member-card__overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: rgba(74, 191, 191, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.team-member-card:hover .team-member-card__overlay {
+  opacity: 1;
+}
+
+/* ---- Social links in overlay ---- */
+.team-member-card__social-links {
+  display: flex;
+  gap: var(--space-xs);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-member-card__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  color: var(--color-teal-dark);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.team-member-card__social-link:hover {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  transform: scale(1.1);
+}
+
+.team-member-card__social-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* ---- Text ---- */
+.team-member-card__name {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.team-member-card__role {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-teal-dark);
+  font-weight: 600;
+}
+
+.team-member-card__bio {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-gray-text);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 1024px) {
+  .team-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .team-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  .team-member-card__photo,
+  .team-member-card__photo-wrap {
+    width: 96px;
+    height: 96px;
+  }
+}
