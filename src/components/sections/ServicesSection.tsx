@@ -1,4 +1,4 @@
-import { useState, type FC, type ReactElement } from 'react';
+import { useState, type FC, type ReactElement, type CSSProperties } from 'react';
 import SectionTitle from '../ui/SectionTitle';
 import type { Service } from '../../types';
 import {
@@ -62,11 +62,11 @@ const SERVICE_ICONS: Record<string, ReactElement> = {
 /* ---- ServiceCard ---- */
 interface ServiceCardProps {
   service: Service;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 const ServiceCard: FC<ServiceCardProps> = ({ service, style }) => (
-  <article className={styles['service-card']} style={style}>
+  <article id={service.slug} className={styles['service-card']} style={style}>
     <span className={styles['service-card__category']}>{service.category}</span>
     <div className={styles['service-card__icon-wrap']}>
       {SERVICE_ICONS[service.icon] ?? SERVICE_ICONS['preventive']}

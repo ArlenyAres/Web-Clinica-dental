@@ -59,7 +59,7 @@ export const services: Service[] = [
   },
 ];
 
-export type ServiceCategory = 'All' | 'Cosmetic' | 'Restorative' | 'Preventive';
+export type ServiceCategory = 'All' | Service['category'];
 export const SERVICE_CATEGORIES: ServiceCategory[] = [
   'All',
   'Cosmetic',

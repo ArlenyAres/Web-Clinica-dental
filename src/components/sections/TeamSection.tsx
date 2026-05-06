@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, CSSProperties } from 'react';
 import SectionTitle from '../ui/SectionTitle';
 import type { TeamMember } from '../../types';
 import styles from './TeamSection.module.css';
@@ -28,7 +28,7 @@ const EmailIcon = () => (
 /* ---- TeamMemberCard ---- */
 interface TeamMemberCardProps {
   member: TeamMember;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 const TeamMemberCard: FC<TeamMemberCardProps> = ({ member, style }) => (
@@ -45,7 +45,6 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({ member, style }) => (
       {member.socialLinks && (
         <div
           className={styles['team-member-card__overlay']}
-          aria-hidden="true"
         >
           <ul className={styles['team-member-card__social-links']}>
             {member.socialLinks.linkedin && (
@@ -56,7 +55,6 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({ member, style }) => (
                   rel="noopener noreferrer"
                   className={styles['team-member-card__social-link']}
                   aria-label={`${member.name} on LinkedIn`}
-                  tabIndex={-1}
                 >
                   <LinkedInIcon />
                 </a>
@@ -70,7 +68,6 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({ member, style }) => (
                   rel="noopener noreferrer"
                   className={styles['team-member-card__social-link']}
                   aria-label={`${member.name} on Twitter`}
-                  tabIndex={-1}
                 >
                   <TwitterIcon />
                 </a>
@@ -82,7 +79,6 @@ const TeamMemberCard: FC<TeamMemberCardProps> = ({ member, style }) => (
                   href={`mailto:${member.socialLinks.email}`}
                   className={styles['team-member-card__social-link']}
                   aria-label={`Email ${member.name}`}
-                  tabIndex={-1}
                 >
                   <EmailIcon />
                 </a>

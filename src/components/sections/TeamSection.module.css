@@ -84,7 +84,8 @@
   transition: opacity 0.25s ease;
 }
 
-.team-member-card:hover .team-member-card__overlay {
+.team-member-card:hover .team-member-card__overlay,
+.team-member-card__photo-wrap:focus-within .team-member-card__overlay {
   opacity: 1;
 }
 
