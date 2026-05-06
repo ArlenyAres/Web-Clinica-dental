@@ -1,0 +1,167 @@
+/* ============================================================
+   CTABanner — BEM: .cta-banner
+   ============================================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Root ---- */
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-teal);
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+/* ---- Decorative circles ---- */
+.cta-banner__decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cta-banner__circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.cta-banner__circle--1 {
+  width: 400px;
+  height: 400px;
+  top: -150px;
+  left: -100px;
+}
+
+.cta-banner__circle--2 {
+  width: 300px;
+  height: 300px;
+  bottom: -120px;
+  right: 5%;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.cta-banner__circle--3 {
+  width: 180px;
+  height: 180px;
+  top: 50%;
+  right: 18%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ---- Content ---- */
+.cta-banner__content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+}
+
+.cta-banner__eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  animation: fadeInUp 0.5s ease 0ms both;
+}
+
+.cta-banner__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.2;
+  animation: fadeInUp 0.5s ease 100ms both;
+}
+
+.cta-banner__subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.7;
+  max-width: 520px;
+  animation: fadeInUp 0.5s ease 200ms both;
+}
+
+.cta-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+  margin-top: var(--space-sm);
+  animation: fadeInUp 0.5s ease 300ms both;
+}
+
+/* White outline button override — only within CTABanner */
+.cta-banner__btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 12px var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-white);
+  background-color: transparent;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.cta-banner__btn-outline:hover {
+  background-color: var(--color-white);
+  color: var(--color-teal-dark);
+  transform: translateY(-1px);
+}
+
+.cta-banner__btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 12px var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  background-color: var(--color-white);
+  color: var(--color-teal-dark);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease,
+              box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.cta-banner__btn-solid:hover {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 480px) {
+  .cta-banner__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-banner__btn-outline,
+  .cta-banner__btn-solid {
+    width: 100%;
+  }
+}

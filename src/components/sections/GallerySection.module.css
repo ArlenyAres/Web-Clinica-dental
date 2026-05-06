@@ -1,0 +1,288 @@
+/* ============================================================
+   GallerySection — BEM: .gallery-section
+   ============================================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---- Root ---- */
+.gallery-section {
+  padding: var(--space-2xl) var(--space-lg);
+  background-color: var(--color-gray-light);
+}
+
+.gallery-section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---- Filter bar ---- */
+.gallery-section__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  justify-content: center;
+}
+
+.gallery-section__filter-btn {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 8px var(--space-md);
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  background-color: var(--color-white);
+  color: var(--color-gray-text);
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.gallery-section__filter-btn:hover {
+  background-color: var(--color-teal-light);
+  color: var(--color-teal-dark);
+}
+
+.gallery-section__filter-btn--active {
+  background-color: var(--color-teal);
+  color: var(--color-white);
+  border-color: var(--color-teal);
+}
+
+/* ---- Masonry grid ---- */
+.gallery-section__masonry {
+  column-count: 3;
+  column-gap: var(--space-md);
+}
+
+/* ---- Gallery item ---- */
+.gallery-section__item {
+  break-inside: avoid;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.25s ease;
+}
+
+.gallery-section__item:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.gallery-section__item-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+/* Lazy-load fade in */
+.gallery-section__item-img--hidden {
+  opacity: 0;
+}
+
+.gallery-section__item-img--visible {
+  opacity: 1;
+  transition: opacity 0.4s ease, transform 0.35s ease;
+}
+
+.gallery-section__item:hover .gallery-section__item-img {
+  transform: scale(1.04);
+}
+
+/* ---- Item overlay ---- */
+.gallery-section__item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26, 46, 68, 0.75) 0%,
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-md);
+}
+
+.gallery-section__item:hover .gallery-section__item-overlay {
+  opacity: 1;
+}
+
+.gallery-section__item-caption {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--color-white);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ---- Zoom icon ---- */
+.gallery-section__zoom-icon {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-section__item:hover .gallery-section__zoom-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gallery-section__zoom-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-navy);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* ============================================================
+   Lightbox — BEM: .lightbox
+   ============================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: rgba(10, 18, 30, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  animation: fadeIn 0.2s ease both;
+}
+
+.lightbox__content {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.lightbox__img {
+  max-height: 78vh;
+  width: auto;
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+.lightbox__caption {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+/* Close button */
+.lightbox__close {
+  position: fixed;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.lightbox__close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lightbox__close svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* Nav arrows */
+.lightbox__arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.lightbox__arrow:hover {
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+}
+
+.lightbox__arrow--prev { left: var(--space-lg); }
+.lightbox__arrow--next { right: var(--space-lg); }
+
+.lightbox__arrow svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Counter */
+.lightbox__counter {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.08em;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .gallery-section__masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-section__masonry {
+    column-count: 1;
+  }
+
+  .lightbox__arrow { display: none; }
+}
