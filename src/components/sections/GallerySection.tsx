@@ -143,7 +143,15 @@ const GallerySection: FC<GallerySectionProps> = ({ items }) => {
               role="button"
               tabIndex={0}
               aria-label={`View ${item.altText}`}
-              onKeyDown={e => { if (e.key === 'Enter') dispatch({ type: 'OPEN', index: i }); }}
+              onKeyDown={e => {
+                if (e.key === 'Enter') {
+                  dispatch({ type: 'OPEN', index: i });
+                }
+                if (e.key === ' ' || e.key === 'Spacebar') {
+                  e.preventDefault();
+                  dispatch({ type: 'OPEN', index: i });
+                }
+              }}
             >
               <LazyImage
                 src={item.imageUrl}
