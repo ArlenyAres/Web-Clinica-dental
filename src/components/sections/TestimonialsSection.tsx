@@ -35,15 +35,19 @@ const TestimonialsSection: FC<TestimonialsSectionProps> = ({ testimonials }) => 
   const [isPaused, setIsPaused] = useState(false);
   const total = testimonials.length;
 
-  const next = useCallback(() => setCurrent(c => (c + 1) % total), [total]);
-  const prev = useCallback(() => setCurrent(c => (c - 1 + total) % total), [total]);
+  const next = useCallback(() => {
+    setCurrent(c => (total > 0 ? (c + 1) % total : 0));
+  }, [total]);
+  const prev = useCallback(() => {
+    setCurrent(c => (total > 0 ? (c - 1 + total) % total : 0));
+  }, [total]);
 
   /* Auto-play — pauses on hover */
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || total === 0) return;
     const id = setInterval(next, 5000);
     return () => clearInterval(id);
-  }, [isPaused, next]);
+  }, [isPaused, next, total]);
 
   return (
     <section
