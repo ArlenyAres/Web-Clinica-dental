@@ -3,14 +3,14 @@ import { useForm }      from '../../hooks/useForm';
 import styles           from './ContactSection.module.css';
 
 /* ── Types ── */
-interface ContactFormValues {
+type ContactFormValues = {
   name:          string;
   email:         string;
   phone:         string;
   service:       string;
   message:       string;
   preferredDate: string;
-}
+};
 
 type ContactErrors = Partial<Record<keyof ContactFormValues, string>>;
 
@@ -40,7 +40,7 @@ function validate(values: ContactFormValues): ContactErrors {
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email))
     e.email = 'Enter a valid email address';
 
-  if (values.phone && !/^[\+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im.test(values.phone))
+  if (values.phone && !/^\+?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im.test(values.phone))
     e.phone = 'Enter a valid phone number';
 
   if (!values.service)

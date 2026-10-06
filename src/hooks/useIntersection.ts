@@ -14,16 +14,11 @@ export function useIntersection<T extends Element>(
 ): [React.RefObject<T | null>, boolean] {
   const { triggerOnce = true, threshold = 0.15, rootMargin = '0px', root = null } = options;
   const ref = useRef<T>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => typeof IntersectionObserver === 'undefined');
 
   useEffect(() => {
-    if (typeof IntersectionObserver === 'undefined') {
-      setIsVisible(true);
-      return;
-    }
-
     const el = ref.current;
-    if (!el) return;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
