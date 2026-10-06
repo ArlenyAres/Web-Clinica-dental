@@ -11,7 +11,7 @@ interface UseIntersectionOptions extends IntersectionObserverInit {
  */
 export function useIntersection<T extends Element>(
   options: UseIntersectionOptions = {}
-): [React.RefObject<T>, boolean] {
+): [React.RefObject<T | null>, boolean] {
   const { triggerOnce = true, threshold = 0.15, rootMargin = '0px', root = null } = options;
   const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
