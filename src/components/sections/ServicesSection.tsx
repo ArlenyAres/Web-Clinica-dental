@@ -73,7 +73,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ service, style }) => (
     </div>
     <h3 className={styles['service-card__title']}>{service.title}</h3>
     <p className={styles['service-card__description']}>{service.description}</p>
-    <a href={`#${service.slug}`} className={styles['service-card__link']}>
+    <a href="#contact" className={styles['service-card__link']}>
       Learn more
       <span className={styles['service-card__link-arrow']} aria-hidden="true">→</span>
     </a>

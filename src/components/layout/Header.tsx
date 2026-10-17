@@ -1,5 +1,6 @@
 import { useState, useEffect, type FC } from 'react';
 import Button from '../ui/Button';
+import { scrollToSection } from '../../utils/scrollToSection';
 import styles from './Header.module.css';
 
 interface NavLink {
@@ -85,7 +86,7 @@ const Header: FC<HeaderProps> = ({ transparent = false }) => {
 
         {/* ---- Desktop CTA ---- */}
         <div className={styles['nav-header__actions']}>
-          <Button variant="primary" size="sm" onClick={() => setActiveLink('#contact')}>
+          <Button variant="primary" size="sm" onClick={() => { setActiveLink('#contact'); scrollToSection('contact'); }}>
             Book Appointment
           </Button>
         </div>
@@ -130,7 +131,7 @@ const Header: FC<HeaderProps> = ({ transparent = false }) => {
           <Button
             variant="primary"
             style={{ width: '100%', justifyContent: 'center' }}
-            onClick={() => { setActiveLink('#contact'); setIsMenuOpen(false); }}
+            onClick={() => { setActiveLink('#contact'); setIsMenuOpen(false); scrollToSection('contact'); }}
           >
             Book Appointment
           </Button>

@@ -12,7 +12,7 @@ export const galleryItems: GalleryItem[] = [
   {
     id: 'g-2',
     imageUrl:
-      'https://images.unsplash.com/photo-1588776814546-1ffbb5c20ae4?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=600&q=80',
     altText: 'Dental treatment in progress',
     category: 'Treatments',
     caption: 'Professional teeth whitening session',
@@ -44,7 +44,7 @@ export const galleryItems: GalleryItem[] = [
   {
     id: 'g-6',
     imageUrl:
-      'https://images.unsplash.com/photo-1629909615184-95f5c24e3f56?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=600&q=80',
     altText: 'Reception and waiting area',
     category: 'Clinic',
     caption: 'Welcoming reception and lounge',
@@ -68,7 +68,7 @@ export const galleryItems: GalleryItem[] = [
   {
     id: 'g-9',
     imageUrl:
-      'https://images.unsplash.com/photo-1596346392967-a6db6f5f5ef3?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&w=600&q=80',
     altText: 'Dental equipment close up',
     category: 'Clinic',
     caption: 'Digital X-ray and diagnostic suite',

@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { scrollToSection } from '../../utils/scrollToSection';
 import styles from './CTABanner.module.css';
 
 interface CTABannerProps {
@@ -17,11 +18,10 @@ const CTABanner: FC<CTABannerProps> = ({
   subtitle   = 'Book your free consultation and let our specialists craft a personalised treatment plan just for you.',
   primaryLabel = 'Book Free Consultation',
   outlineLabel = 'Call Us Now',
-  onPrimary,
-  onOutline,
+  onPrimary = () => scrollToSection('contact'),
+  onOutline = () => { window.location.href = 'tel:+15552345678'; },
 }) => (
   <section
-    id="contact"
     className={styles['cta-banner']}
     aria-label="Call to action — book appointment"
   >

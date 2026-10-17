@@ -1,5 +1,6 @@
 import { useEffect, useRef, type FC } from 'react';
 import Button from '../ui/Button';
+import { scrollToSection } from '../../utils/scrollToSection';
 import styles from './HeroSection.module.css';
 
 interface Stat {
@@ -79,10 +80,10 @@ const HeroSection: FC = () => {
 
         {/* CTA row */}
         <div className={styles['hero-section__actions']}>
-          <Button variant="primary" size="lg">
+          <Button variant="primary" size="lg" onClick={() => scrollToSection('contact')}>
             Book Appointment
           </Button>
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" onClick={() => scrollToSection('services')}>
             Explore Services
           </Button>
         </div>
