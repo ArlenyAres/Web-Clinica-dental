@@ -55,9 +55,8 @@ function validate(values: ContactFormValues): ContactErrors {
 }
 
 /* Simulates API call — swap for real fetch() */
-async function submitContact(values: ContactFormValues): Promise<void> {
+async function submitContact(): Promise<void> {
   await new Promise<void>(resolve => setTimeout(resolve, 1500));
-  console.info('[ContactSection] form submitted', values);
 }
 
 /* ── Input class helper ── */
@@ -84,7 +83,7 @@ export default function ContactSection() {
     handleChange, handleBlur, handleSubmit, reset,
   } = useForm<ContactFormValues>(initialValues, validate);
 
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toLocaleDateString('en-CA'); // local YYYY-MM-DD
 
   return (
     <section id="contact" className={styles['contact-section']} aria-labelledby="contact-heading">
@@ -120,7 +119,7 @@ export default function ContactSection() {
                     />
                   </svg>
                 </span>
-                <h3 className={styles['contact-form__success-title']}>Message Sent!</h3>
+                <h3 className={styles['contact-form__success-title']}>Message sent</h3>
                 <p className={styles['contact-form__success-text']}>
                   Thank you for contacting NEU Dental. Our team will be in touch shortly.
                 </p>
